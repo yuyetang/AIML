@@ -18528,10 +18528,10 @@ the testing score 0.9037894426422884
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_predict_AB</span> <span class="o">=</span> <span class="n">rfcl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_predict_AB</span> <span class="o">=</span> <span class="n">abcl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
 <span class="n">cm_AB</span><span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_predict_AB</span><span class="p">)</span>
 <span class="n">cm_AB</span>   
 </pre></div>
@@ -18546,14 +18546,14 @@ the testing score 0.9037894426422884
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[58]:</div>
+    <div class="prompt output_prompt">Out[72]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[11712,   318],
-       [  957,   577]], dtype=int64)</pre>
+<pre>array([[11660,   370],
+       [  935,   599]], dtype=int64)</pre>
 </div>
 
 </div>
@@ -18564,7 +18564,7 @@ the testing score 0.9037894426422884
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_predict_AB</span><span class="p">))</span>
@@ -18587,10 +18587,10 @@ the testing score 0.9037894426422884
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Recall: 0.37614080834419816
-Precision: 0.6446927374301676
-F1 Score: 0.47509263071222724
-Roc Auc Score: 0.6748534465661141
+<pre>Recall: 0.39048239895697523
+Precision: 0.6181630546955624
+F1 Score: 0.4786256492209348
+Roc Auc Score: 0.6798629783646056
 </pre>
 </div>
 </div>
@@ -18601,7 +18601,7 @@ Roc Auc Score: 0.6748534465661141
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize model performance with yellowbrick library</span>
@@ -18656,13 +18656,13 @@ Roc Auc Score: 0.6748534465661141
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[60]:</div>
+    <div class="prompt output_prompt">Out[75]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x147f7f98eb0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x147f055bb20&gt;</pre>
 </div>
 
 </div>
@@ -18680,7 +18680,7 @@ Roc Auc Score: 0.6748534465661141
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bgcl</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">max_samples</span><span class="o">=</span> <span class="o">.</span><span class="mi">7</span><span class="p">,</span> <span class="n">bootstrap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">oob_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># fitting the model</span>
@@ -18694,7 +18694,7 @@ Roc Auc Score: 0.6748534465661141
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pred_train_BG</span> <span class="o">=</span> <span class="n">bgcl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>                  <span class="c1"># Output training and testing scores</span>
@@ -18731,7 +18731,7 @@ the testing score 0.9069595989383663
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_predict_BG</span> <span class="o">=</span> <span class="n">bgcl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
@@ -18749,7 +18749,7 @@ the testing score 0.9069595989383663
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[63]:</div>
+    <div class="prompt output_prompt">Out[78]:</div>
 
 
 
@@ -18767,7 +18767,7 @@ the testing score 0.9069595989383663
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_predict_BG</span><span class="p">))</span>
@@ -18804,7 +18804,7 @@ Roc Auc Score: 0.7089508952520913
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize model performance with yellowbrick library</span>
@@ -18859,13 +18859,13 @@ Roc Auc Score: 0.7089508952520913
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[65]:</div>
+    <div class="prompt output_prompt">Out[80]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x147f8003e50&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x147edf0ca60&gt;</pre>
 </div>
 
 </div>
@@ -18886,7 +18886,7 @@ Roc Auc Score: 0.7089508952520913
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Store the accuracy results for each model in a dataframe for final comparison</span>
@@ -18909,7 +18909,7 @@ Roc Auc Score: 0.7089508952520913
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[66]:</div>
+    <div class="prompt output_prompt">Out[81]:</div>
 
 
 
@@ -18963,7 +18963,7 @@ Roc Auc Score: 0.7089508952520913
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempResultsDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Method&#39;</span><span class="p">:[</span><span class="s1">&#39;Decision Tree&#39;</span><span class="p">],</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">acc_test_dtree</span><span class="p">,</span>
@@ -18981,7 +18981,7 @@ Roc Auc Score: 0.7089508952520913
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempResultsDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Method&#39;</span><span class="p">:[</span><span class="s1">&#39;Random Forest&#39;</span><span class="p">],</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">acc_test_RF</span><span class="p">,</span>
@@ -18999,7 +18999,7 @@ Roc Auc Score: 0.7089508952520913
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempResultsDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Method&#39;</span><span class="p">:[</span><span class="s1">&#39;Adaboost Ensemble&#39;</span><span class="p">],</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">acc_test_AB</span><span class="p">,</span>
@@ -19017,7 +19017,7 @@ Roc Auc Score: 0.7089508952520913
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempResultsDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Method&#39;</span><span class="p">:[</span><span class="s1">&#39;Bagging Ensemble&#39;</span><span class="p">],</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">acc_test_BG</span><span class="p">,</span>
@@ -19035,7 +19035,7 @@ Roc Auc Score: 0.7089508952520913
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">resultsDf</span>
@@ -19051,7 +19051,7 @@ Roc Auc Score: 0.7089508952520913
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[71]:</div>
+    <div class="prompt output_prompt">Out[86]:</div>
 
 
 
@@ -19114,10 +19114,10 @@ Roc Auc Score: 0.7089508952520913
       <th>0</th>
       <td>Adaboost Ensemble</td>
       <td>0.903789</td>
-      <td>0.644693</td>
-      <td>0.376141</td>
-      <td>0.475093</td>
-      <td>0.674853</td>
+      <td>0.618163</td>
+      <td>0.390482</td>
+      <td>0.478626</td>
+      <td>0.679863</td>
     </tr>
     <tr>
       <th>0</th>
@@ -19160,7 +19160,7 @@ Roc Auc Score: 0.7089508952520913
 </ul>
 <p>Predicted customer will not accept term deposit, but the customer accepted.</p>
 <h5 id="Important-Metric"><code>Important Metric</code><a class="anchor-link" href="#Important-Metric">&#182;</a></h5><p>The bank wants to spend less to promote term deposit services, but wants a high success rate of actual acceptance. This means less number of false positive. Precision is the important metrix in this case.</p>
-<p>The logistic regreeion model, decision tree, random forest, adaboost and bagging have similar accuracy and precision value. In terms of the precision, Logistic Regression, Random Forest, and Adaboost are slightly higher compared to other techniques. However, the Adaboost is depending on the learning rate setup and potentially timeconsuming. Hence, Logistic Regression and Random Forest are considered as the better model among 5 models for prediction.</p>
+<p>The logistic regreeion model, decision tree, random forest, adaboost and bagging have similar accuracy and precision value. The Adaboost is depending on the learning rate setup and potentially timeconsuming. In terms of the precision, Logistic Regression, Random Forest are slightly higher compared to other techniques. Hence, Logistic Regression and Random Forest are considered as the better model among 5 models for prediction.</p>
 <p>If only comparing all ensemble methods, Random Forest is the best one.</p>
 
 </div>
